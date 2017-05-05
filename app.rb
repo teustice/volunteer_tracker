@@ -16,6 +16,7 @@ get '/' do
   erb(:index)
 end
 
+# ADD PROJECT
 get '/add_project' do
   erb(:add_project)
 end
@@ -27,6 +28,15 @@ post '/add_project' do
   redirect('/')
 end
 
+
+# PROJECT PAGE
+get '/project/:id' do
+  @project = Project.find(params.fetch('id'))
+  erb(:project)
+end
+
+
+# ADD VOLUNTEER
 get '/add_volunteer' do
   erb(:add_volunteer)
 end

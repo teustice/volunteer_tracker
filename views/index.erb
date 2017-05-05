@@ -1,7 +1,7 @@
 <h3>Here are all the current projects:</h3>
 
 <% @projects.each do |project| %>
-  <h5><%= project['name'] %></h5>
+  <a href="/project/<%= project['id'] %>"><h5><%= project['name'] %></h5></a>
 <% end %>
 
 <a href="/add_project"><h4>Add project</h4></a>
