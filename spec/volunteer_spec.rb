@@ -41,4 +41,14 @@ describe 'Volunteer' do
       expect(Volunteer.all).to eq []
     end
   end
+
+  describe '.add_to_project' do
+    it 'adds a volunteer to a project' do
+      name = "Billy"
+      volunteer_id = Volunteer.save(name)
+      project_id = SecureRandom.uuid
+      Volunteer.add_to_project(project_id)
+      expect(Volunteer.all[0]['project_id']).to eq project_id
+    end
+  end
 end

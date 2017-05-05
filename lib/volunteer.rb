@@ -21,4 +21,8 @@ module Volunteer
   def self.delete(id)
     DB.exec("DELETE FROM volunteers WHERE id = '#{id}';")
   end
+
+  def self.add_to_project(project_id)
+    DB.exec("UPDATE volunteers SET project_id = '#{project_id}';")
+  end
 end
