@@ -4,7 +4,7 @@
 <h4>Volunteers working on this project:</h4>
 
 <% @volunteers.each do |volunteer| %>
-  <h5>- <em><%= volunteer['name'] %></em></h5>
+  <a href="/project/<%= @project['id'] %>/volunteer/<%= volunteer['id'] %>"><h5>- <em><%= volunteer['name'] %></em></h5></a>
 <% end %>
 
 <a href="/project/<%= @project['id'] %>/add_volunteer"><h4>Add volunteer</h4></a>

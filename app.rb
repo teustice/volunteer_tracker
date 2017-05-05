@@ -56,10 +56,6 @@ patch '/project/:id/update_project' do
 end
 
 # ADD VOLUNTEER
-get '/add_volunteer' do
-  erb(:add_volunteer)
-end
-
 get '/project/:id/add_volunteer' do
   @project = Project.find(params.fetch('id'))
   erb(:add_volunteer)
@@ -70,5 +66,20 @@ post '/project/:id/add_volunteer' do
   name = params.fetch('name')
   id = Volunteer.save(name)
   Volunteer.add_to_project(id, project_id)
+  redirect("/project/#{project_id}")
+end
+
+# VOLUNTEER EDIT PAGE
+get '/project/:project_id/volunteer/:volunteer_id' do
+  @project_id = params.fetch('project_id')
+  @volunteer = Volunteer.find(params.fetch('volunteer_id'))
+  erb(:volunteer)
+end
+
+patch '/project/:project_id/volunteer/:volunteer_id' do
+  project_id = params.fetch('project_id')
+  volunteer = Volunteer.find(params.fetch('volunteer_id'))
+  name = params.fetch('name')
+  Volunteer.edit(volunteer['id'], name)
   redirect("/project/#{project_id}")
 end

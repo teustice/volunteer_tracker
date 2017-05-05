@@ -1,0 +1,9 @@
+<h3>Volunteer name: <%= @volunteer['name'] %></h3>
+
+<h4>Edit Volunteer information:</h4>
+<form action="/project/<%= @project_id %>/volunteer/<%= @volunteer['id'] %>" method="post">
+  <input type="hidden" name="_method" value="patch">
+  <label for="name">Volunteer name:</label>
+  <input type="text" name="name" value="<%= @volunteer['name'] %>">
+  <button type="submit">Update volunteer</button>
+</form>
