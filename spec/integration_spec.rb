@@ -40,4 +40,19 @@ describe("the project path", {:type => :feature}) do
     click_button("Add volunteer")
     expect(page).to have_content("Billy Bobson")
   end
+
+  it("will update a project") do
+    visit('/')
+    click_link("Add project")
+    fill_in("name", :with => "Litter clean up")
+    fill_in("description", :with => "Clean up litter around the portland area")
+    click_button("Add project")
+    click_link('Litter clean up')
+
+    click_link('Edit project')
+    fill_in('name', :with => "Recycle litter")
+    fill_in('description', :with => "Sort through litter and decide what is recyclable")
+    click_button('Update project')
+    expect(page).to have_content("Recycle litter")
+  end
 end

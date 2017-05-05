@@ -1,0 +1,10 @@
+<h3>Update project: <%= @project['name'] %></h3>
+
+<form action="/project/<%= @project['id'] %>/update_project" method="post">
+  <input type="hidden" name="_method" value="patch">
+  <label for="name">Project name:</label>
+  <input type="text" name="name" value="<%= @project['name'] %>">
+  <label for="description">Project description:</label>
+  <input type="text" name="description" value="<%= @project['description'] %>">
+  <button type="submit">Update project</button>
+</form>
