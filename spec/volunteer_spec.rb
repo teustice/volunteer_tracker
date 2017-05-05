@@ -1,6 +1,3 @@
-require "volunteer"
-require "rspec"
-require "pry"
 
 
 # example project spec
