@@ -37,4 +37,14 @@ describe 'Project' do
       expect(Project.all[0]["description"]).to eq "New description"
     end
   end
+
+  describe '.delete' do
+    it 'deletes a project' do
+      name = "Litter clean up"
+      description = "Clean up litter around Portland"
+      project_id = Project.save(name, description)
+      Project.delete(project_id)
+      expect(Project.all).to eq []
+    end
+  end
 end

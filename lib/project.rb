@@ -15,6 +15,10 @@ module Project
   end
 
   def self.edit(id, name, description)
-    DB.exec("UPDATE projects SET name = '#{name}', description = '#{description}' WHERE id = '#{id}'")
+    DB.exec("UPDATE projects SET name = '#{name}', description = '#{description}' WHERE id = '#{id}';")
+  end
+
+  def self.delete(id)
+    DB.exec("DELETE FROM projects WHERE id = '#{id}';")
   end
 end
