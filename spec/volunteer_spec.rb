@@ -1,16 +1,44 @@
+require 'helper_spec'
 
+describe 'Volunteer' do
+  describe '.all' do
+    it 'Will return an empty array for the all method' do
+      expect(Volunteer.all).to eq []
+    end
+  end
 
-# example project spec
+  describe '.save' do
+    it 'It will save a Volunteer to the volunteers table' do
+      name = "Billy"
+      volunteer_id = Volunteer.save(name)
+      expect(Volunteer.all[0]["id"]).to eq volunteer_id
+      expect(Volunteer.all[0]["name"]).to eq name
+    end
+  end
 
-# describe 'Palindrome#isWord?' do
-#   let(:word) { Palindrome.new }
+  describe '.find' do
+    it 'returns a volunteer based on id' do
+      name = "Billy"
+      volunteer_id = Volunteer.save(name)
+      expect(Volunteer.find(volunteer_id)["name"]).to eq name
+    end
+  end
 
-#   it "returns true if the word has at least one vowel" do
-#     expect(word.is_word?("word")).to eq true
-#   end
+  describe '.edit' do
+    it 'updates a volunteer with new values' do
+      name = "Billy"
+      volunteer_id = Volunteer.save(name)
+      Volunteer.edit(volunteer_id, "New name")
+      expect(Volunteer.all[0]["name"]).to eq "New name"
+    end
+  end
 
-#   it "returns false if the word does not have a vowel" do
-#     expect(word.is_word?("wrd")).to eq false
-#   end
-
-# end
+  describe '.delete' do
+    it 'deletes a volunteer' do
+      name = "Billy"
+      volunteer_id = Volunteer.save(name)
+      Volunteer.delete(volunteer_id)
+      expect(Volunteer.all).to eq []
+    end
+  end
+end
