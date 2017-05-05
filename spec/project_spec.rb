@@ -26,4 +26,15 @@ describe 'Project' do
       expect(Project.find(project_id)["name"]).to eq name
     end
   end
+
+  describe '.edit' do
+    it 'edits a project with new values' do
+      name = "Litter clean up"
+      description = "Clean up litter around Portland"
+      project_id = Project.save(name, description)
+      Project.edit(project_id, "New name", "New description")
+      expect(Project.all[0]["name"]).to eq "New name"
+      expect(Project.all[0]["description"]).to eq "New description"
+    end
+  end
 end

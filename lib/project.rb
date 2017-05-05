@@ -11,6 +11,10 @@ module Project
   end
 
   def self.find(id)
-    stuff = DB.exec("SELECT * FROM projects WHERE id = '#{id}';")[0]
+    DB.exec("SELECT * FROM projects WHERE id = '#{id}';")[0]
+  end
+
+  def self.edit(id, name, description)
+    DB.exec("UPDATE projects SET name = '#{name}', description = '#{description}' WHERE id = '#{id}'")
   end
 end
