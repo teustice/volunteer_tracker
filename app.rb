@@ -55,6 +55,13 @@ patch '/project/:id/update_project' do
   redirect("/project/#{id}")
 end
 
+# DELETE PROJECT
+delete '/project/:id/delete' do
+  id = params.fetch('id')
+  Project.delete(id)
+  redirect('/')
+end
+
 # ADD VOLUNTEER --------------------------
 get '/project/:id/add_volunteer' do
   @project = Project.find(params.fetch('id'))
@@ -81,5 +88,12 @@ patch '/project/:project_id/volunteer/:volunteer_id' do
   volunteer = Volunteer.find(params.fetch('volunteer_id'))
   name = params.fetch('name')
   Volunteer.edit(volunteer['id'], name)
+  redirect("/project/#{project_id}")
+end
+
+delete '/project/:project_id/volunteer/:volunteer_id/delete' do
+  volunteer_id = params.fetch('volunteer_id')
+  project_id = params.fetch('project_id')
+  Volunteer.delete(volunteer_id)
   redirect("/project/#{project_id}")
 end

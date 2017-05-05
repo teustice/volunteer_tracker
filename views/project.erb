@@ -4,6 +4,10 @@
     <h3>Description: <em><%= @project['description'] %></em></h3>
     <a href="/project/<%= @project['id'] %>/add_volunteer"><h4>Add volunteer</h4></a>
     <a href="/project/<%= @project['id'] %>/update_project"><h4>Edit project</h4></a>
+    <form action="/project/<%= @project['id']%>/delete" method="post">
+      <input type="hidden" name="_method" value="delete">
+      <button type="submit">Delete project</button>
+    </form>
   </div>
   <div class="col-md-6">
     <% if @volunteers.any? %>
