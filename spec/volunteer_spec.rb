@@ -47,7 +47,7 @@ describe 'Volunteer' do
       name = "Billy"
       volunteer_id = Volunteer.save(name)
       project_id = SecureRandom.uuid
-      Volunteer.add_to_project(project_id)
+      Volunteer.add_to_project(volunteer_id, project_id)
       expect(Volunteer.all[0]['project_id']).to eq project_id
     end
   end

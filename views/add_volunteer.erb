@@ -1,0 +1,6 @@
+<h3>Add a volunteer to: <%= @project['name'] %></h3>
+
+<form action="/project/<%= @project['id'] %>/add_volunteer" method="post">
+  <input type="text" name="name" placeholder="Volunteer name">
+  <button type="submit">Add volunteer</button>
+</form>

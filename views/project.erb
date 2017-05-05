@@ -1,2 +1,10 @@
 <h3>Project: <em><%= @project['name'] %></em></h3>
 <h4>Description: <em><%= @project['description'] %></em></h4>
+
+<h4>Volunteers working on this project:</h4>
+
+<% @volunteers.each do |volunteer| %>
+  <h5>- <em><%= volunteer['name'] %></em></h5>
+<% end %>
+
+<a href="/project/<%= @project['id'] %>/add_volunteer"><h4>Add volunteer</h4></a>
