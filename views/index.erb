@@ -1,12 +1,7 @@
-<%= # sample index html
-# <form action="/phrase_parser">
-#   <div class="form-group">
-#      <label for="title">gimme phrase or word!</label>
-#      <input name="phrase1" class="form-control" type="text">
-#      <label for="title">gimme another!</label>
-#      <input name="phrase2" class="form-control" type="text">
-#   </div>
-#   <hr>
-#   <button action="/" class="btn btn-success">what am i?</button>
-# </form>
-%>
+<h3>Here are all the current projects:</h3>
+
+<% @projects.each do |project| %>
+  <h5><%= project['name'] %></h5>
+<% end %>
+
+<a href="/add_project"><h4>Add project</h4></a>

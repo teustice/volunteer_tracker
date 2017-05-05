@@ -4,6 +4,16 @@ require "./app"
 Capybara.app = Sinatra::Application
 set(:show_exceptions, false)
 
+describe("the add_project path", {:type => :feature}) do
+  it("creates a new project and displays it on the index page") do
+    visit('/')
+    click_link("Add project")
+    fill_in("name", :with => "Litter clean up")
+    fill_in("description", :with => "Clean up litter around the portland area")
+    click_button("Add project")
+    expect(page).to have_content("Litter clean up")
+  end
+end
 # example integration test
 
 # describe("the phrase parser path", {:type => :feature}) do
