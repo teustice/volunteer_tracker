@@ -17,4 +17,13 @@ describe 'Project' do
       expect(Project.all[0]["description"]).to eq description
     end
   end
+
+  describe '.find' do
+    it 'returns a project based on id' do
+      name = "Litter clean up"
+      description = "Clean up litter around Portland"
+      project_id = Project.save(name, description)
+      expect(Project.find(project_id)["name"]).to eq name
+    end
+  end
 end
