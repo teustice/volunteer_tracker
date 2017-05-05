@@ -27,13 +27,13 @@ _If you have any questions, contact me at teustice@msn.com_
 
 ## Technologies Used
 
-_HTML_
-_CSS_
-_Ruby_
-_Sinatra_
-_Rspec_
-_Capybara_
-_Postgres_
+* _HTML_
+* _CSS_
+* _Ruby_
+* _Sinatra_
+* _Rspec_
+* _Capybara_
+* _Postgres_
 
 ### License
 
