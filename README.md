@@ -12,11 +12,10 @@ _This app tracks a list of projects, and volunteers that the user creates. The u
 _run 'bundle' in the project directory to install gem dependencies_
 
 _Connect to Postgres and run the following commands to generate the necessary database:_
-* _create database volunteer_tracker;_
-* _create table volunteers (volunteer_id uuid primary key, name varchar, project_id uuid);_
-* _create table projects (project_id uuid primary key, name varchar);_
-* _create table hours (id uuid primary key, project_id uuid, volunteer_id uuid, date_worked date, hours int);_
-* _create database volunteer_tracker_test with template volunteer_tracker;_
+* _CREATE DATABASE volunteer_tracker;_
+* _CREATE TABLE volunteers (id uuid PRIMARY KEY, name varchar, project_id uuid);_
+* _CREATE TABLE projects (id uuid PRIMARY KEY, name varchar);_
+* _CREATE DATABASE volunteer_tracker_test WITH TEMPLATE volunteer_tracker;_
 
 ## Known Bugs
 
