@@ -16,7 +16,7 @@ get '/' do
   erb(:index)
 end
 
-# ADD PROJECT
+# ADD PROJECT --------------------------
 get '/add_project' do
   erb(:add_project)
 end
@@ -29,7 +29,7 @@ post '/add_project' do
 end
 
 
-# PROJECT PAGE
+# PROJECT PAGE --------------------------
 get '/project/:id' do
   @project = Project.find(params.fetch('id'))
   @volunteers = []
@@ -41,7 +41,7 @@ get '/project/:id' do
   erb(:project)
 end
 
-# UPDATE PROJECT
+# UPDATE PROJECT --------------------------
 get '/project/:id/update_project' do
   @project = Project.find(params.fetch('id'))
   erb(:update_project)
@@ -55,7 +55,7 @@ patch '/project/:id/update_project' do
   redirect("/project/#{id}")
 end
 
-# ADD VOLUNTEER
+# ADD VOLUNTEER --------------------------
 get '/project/:id/add_volunteer' do
   @project = Project.find(params.fetch('id'))
   erb(:add_volunteer)
@@ -69,7 +69,7 @@ post '/project/:id/add_volunteer' do
   redirect("/project/#{project_id}")
 end
 
-# VOLUNTEER EDIT PAGE
+# VOLUNTEER EDIT PAGE --------------------------
 get '/project/:project_id/volunteer/:volunteer_id' do
   @project_id = params.fetch('project_id')
   @volunteer = Volunteer.find(params.fetch('volunteer_id'))
