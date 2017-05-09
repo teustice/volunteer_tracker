@@ -13,8 +13,9 @@ _run 'bundle' in the project directory to install gem dependencies_
 
 _Connect to Postgres and run the following commands to generate the necessary database:_
 * _CREATE DATABASE volunteer_tracker;_
+* _\c volunteer_tracker_
 * _CREATE TABLE volunteers (id uuid PRIMARY KEY, name varchar, project_id uuid);_
-* _CREATE TABLE projects (id uuid PRIMARY KEY, name varchar);_
+* _CREATE TABLE projects (id uuid PRIMARY KEY, name varchar, description varchar);_
 * _CREATE DATABASE volunteer_tracker_test WITH TEMPLATE volunteer_tracker;_
 
 ## Known Bugs
